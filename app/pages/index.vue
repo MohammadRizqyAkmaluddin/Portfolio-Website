@@ -5,6 +5,53 @@ definePageMeta({
 
 import { ref } from 'vue'
 
+
+const images = [
+  "/showcase/courtside.png",
+  "/showcase/luxora.png",
+  "/showcase/connexa.png",
+  "/showcase/academia.png",
+  "/showcase/sparky.png",
+]
+
+const transforms = [
+  { r: -2, y: -15, x: 20, scale: 0.95 },
+  { r: -5, y: 10, x: -5, scale: 1 },
+  { r: 4, y: -15, x: 10, scale: 1.05 }, // middle biasanya paling standout
+  { r: 6, y: 15, x: 5, scale: 1 },
+  { r: -10, y: 45, x: -20, scale: 0.95 },
+]
+
+const getStyle = (index) => {
+  const t = transforms[index]
+  return {
+    transform: `
+      translateX(${t.x}px)
+      translateY(2px)
+      rotate(${t.r}deg)
+      scale(${t.scale})
+      translateZ(0)
+    `,
+    zIndex: images.length - index
+  }
+}
+
+const imagesMobile = [
+  "/showcase/connexa.png",
+  "/showcase/luxora.png",
+  "/showcase/sparky2.png",
+  "/showcase/academia.png",
+  "/showcase/courtside.png",
+]
+
+const getMobileStyle = (index) => {
+  const zMap = [1, 2, 5, 2, 1] // IMG 3 paling atas
+
+  return {
+    zIndex: zMap[index],
+  }
+}
+
 const tools = [
   { name: 'Figma', image: '/tools/react.png' },
   { name: 'VSCode', image: '/tools/php.png' },
@@ -14,7 +61,6 @@ const tools = [
 ]
 
 const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
-
 </script>
 
 <template>
@@ -23,10 +69,10 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
       <img src="/profile.jpg" class="profile-anim w-[110px] h-[110px] rounded-full border object-cover p-2" />
     </div>
   </div>
-  <div class="border-b p-2">
-    <h1 class="hero-title text-center text-4xl leading-[47px] md:text-6xl md:leading-[60px] tracking-tight font-semibold font-encode ">
+  <div class="border-b p-2 items-center flex justify-center">
+    <h1 class="hero-title w-full md:w-2/3 text-center text-4xl leading-[47px] md:text-6xl md:leading-[60px] tracking-tight font-semibold font-encode ">
         Hi, I'm Rizqy! <br />
-        Welcome to my Project Collection Website
+        Welcome to my corner of the internet
     </h1>
   </div>
   <div class="flex justify-center border-y p-2 mt-8 items-center">
@@ -35,39 +81,31 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
     </p>
   </div>
 
-  <div class="flex flex-col md:flex-row justify-center gap-2 my-8 ">
+  <div class="hidden sm:hidden md:flex wrapper ms-10 my-5">
+    <div
+      v-for="(img, index) in images"
+      :key="index"
+      class="card shadow border"
+      :style="getStyle(index)"
+    >
+      <img :src="img" alt="" />
+    </div>
+  </div>
+
+  <div class="flex flex-col md:hidden items-center my-20">
+    <div
+      v-for="(img, index) in imagesMobile"
+      :key="index"
+      class="card-mobile"
+      :style="getMobileStyle(index)"
+    >
+      <img :src="img" alt="" />
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row justify-center gap-2 px-3 bg-white md:bg-[linear-gradient(to_right,#FFFEFB_0%,#FFFEFB_3%,#ffffff_30%)] my-8 mb-20 border-y py-8">
     <div class="flex flex-col gap-2 w-full md:w-[50%]">
-      <NuxtLink to="/toolbox" class="group flex flex-col w-full
-        bg-[linear-gradient(to_right,#FFFEFB_0%,#FFFEFB_50%,#ffffff_100%)] group"
-      >
-        <div class="relative toolbox-wrap overflow-hidden rounded-2xl group-hover:border-gray-300">
-          <div class="absolute z-10 inset-0 opacity-0 group-hover:opacity-50 transition duration-300
-            bg-[radial-gradient(circle_at_80%_80%,rgba(140,140,140,0.35),transparent_50%)]">
-          </div>
-          <h1 class="text-center mb-1">Toolbox</h1>
-          <p class="text-sm text-center text-gray-500 mb-2">Check out my favorite tools and spots around the web</p>
-          <div class="carousel-row">
-            <div v-for="(tool, i) in tools"
-            :key="i"
-            :class="[
-                  'tool-card',
-                  i === 0 && 'partial-left',
-                  i === tools.length - 1 && 'partial-right',
-                  i === 2 && 'featured'   /* index 2 = box ke-3 */
-                ]"
-                :style="{ transitionDelay: delays[i] }"
-                class="shadow"
-                >
-              <div class="border p-5 rounded-md bg-gray-100">
-                <div class="tool-icon" :style="{ background: tool.bg }">
-                  <img :src="tool.image" :alt="tool.name" class="w-15 h-15 object-contain" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </NuxtLink>
-      <NuxtLink to="/about" class="flex flex-col w-full bg-white group">
+      <NuxtLink to="/about" class="flex flex-col w-full bg-[#FFFEFB] group">
         <div class="flex border py-2 rounded-xl overflow-hidden relative group-hover:border-gray-300">
           <div class="absolute inset-0 opacity-0 group-hover:opacity-50 transition duration-300
             bg-[radial-gradient(circle_at_80%_80%,rgba(140,140,140,0.35),transparent_70%)]">
@@ -93,16 +131,44 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
       
         </div>
       </NuxtLink>
+      <NuxtLink to="/toolbox" class="group flex flex-col w-full bg-[#FFFEFB] group">
+        <div class="relative toolbox-wrap overflow-hidden rounded-2xl group-hover:border-gray-300">
+          <div class="absolute z-10 inset-0 opacity-0 group-hover:opacity-50 transition duration-300
+            bg-[radial-gradient(circle_at_80%_80%,rgba(140,140,140,0.35),transparent_50%)]">
+          </div>
+          <h1 class="text-center mb-1">Toolbox</h1>
+          <p class="text-sm text-center text-gray-500 mb-2">Check out development tools and technologies i have experience with</p>
+          <div class="carousel-row">
+            <div v-for="(tool, i) in tools"
+            :key="i"
+            :class="[
+                  'tool-card',
+                  i === 0 && 'partial-left',
+                  i === tools.length - 1 && 'partial-right',
+                  i === 2 && 'featured'   /* index 2 = box ke-3 */
+                ]"
+                :style="{ transitionDelay: delays[i] }"
+                class="shadow"
+                >
+              <div class="border p-5 rounded-md bg-gray-100">
+                <div class="tool-icon" :style="{ background: tool.bg }">
+                  <img :src="tool.image" :alt="tool.name" class="w-15 h-15 object-contain" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </NuxtLink>
     </div>
     <div class="flex flex-col gap-2 w-full md:w-[50%]">
-      <NuxtLink to="/project" class="flex flex-col w-full h-full bg-white group">
+      <NuxtLink to="/project" class="flex flex-col w-full h-full bg-[#FFFEFB] group">
         <div class="relative border h-full overflow-hidden rounded-2xl group-hover:border-gray-300">
           <div class="absolute inset-0 opacity-0 group-hover:opacity-90 transition duration-300
             bg-[radial-gradient(circle_at_80%_90%,rgba(140,140,140,0.35),transparent_70%)]">
           </div>
           <div class="flex flex-col p-5">
             <h1 class="mb-2">Project Collection</h1>
-            <p class="text-sm text-gray-500">Here's list of my recent website project</p>
+            <p class="text-sm text-gray-500">A collection of my favorite developed project recently</p>
           </div>
           <div class="relative flex items-end justify-center">
             <img src="/project.png" 
@@ -120,6 +186,93 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
 
 
 <style scoped>
+
+.mobile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* base */
+.card-mobile {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
+
+
+/* gambar */
+.card-mobile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ object-position: top; 
+}
+
+/* SIZE TIAP CARD (INI YANG BIKIN EFFECT NYA KENA) */
+.card-mobile:nth-child(1) {
+  width: 70%;
+  height: 110px;
+}
+
+.card-mobile:nth-child(2) {
+  width: 85%;
+  height: 120px;
+}
+
+.card-mobile:nth-child(3) {
+  width: 90%;
+  height: 100%;
+}
+
+.card-mobile:nth-child(4) {
+  width: 85%;
+  height: 120px;
+}
+
+.card-mobile:nth-child(5) {
+  width: 70%;
+  height: 110px;
+}
+
+/* overlap */
+.card-mobile:not(:first-child) {
+  margin-top: -60px;
+}
+
+.wrapper {
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* biar saling nempel */
+  padding: 60px;
+}
+
+/* card styling */
+.card {
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.35s ease;
+  cursor: pointer;
+
+  margin-left: -50px;
+}
+
+/* image */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: auto;
+  backface-visibility: hidden;
+}
+
+/* hover effect */
+.card:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 10;
+}
 
 .profile-img {
   width: 180px;
@@ -162,7 +315,6 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 0.7rem 0;
-  background: #fff;
 }
 
 .toolbox-wrap:hover .tool-card {
@@ -258,19 +410,19 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
 
 .hero-title {
   opacity: 0;
-  transform: translateY(10px);
-  animation: fadeUp 800ms ease-out forwards;
+  transform: translateY(40px);
+  animation: fadeUp 800ms ease-out 0.2s forwards;
 }
 .hero-subtitle {
   opacity: 0;
   transform: translateY(10px);
-  animation: fadeUp 900ms ease-in forwards;
+  animation: fadeUp 700ms ease-out 0.4s forwards;
 }
 
 @keyframes fadeUp {
   0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
