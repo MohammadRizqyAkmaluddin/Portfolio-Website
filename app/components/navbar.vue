@@ -9,7 +9,7 @@ const closeMenu = () => mobileMenu.value = false
 
 const isHome = computed(() => route.path === '/')
 const isAbout = computed(() => route.path === '/about')
-const isProject = computed(() => route.path === '/project')
+const isProject = computed(() => route.path.startsWith('/project'))
 const isToolbox = computed(() => route.path === '/toolbox')
 
 </script>
@@ -26,14 +26,16 @@ const isToolbox = computed(() => route.path === '/toolbox')
             <NuxtLink to="/toolbox" class="hover:text-black transition-colors" :class="isToolbox ? 'text-black' : ''">Toolbox</NuxtLink>
         </div>
         <div class="hidden min-[1000px]:flex gap-2 bg-[#3C3C3F] rounded-full items-center px-4 py-[7px] text-[#9CA3AF]">
-            <NuxtLink to="linkedin.com/in/mohammad-rizqy-akmaluddin/" target="_blank">
+            <NuxtLink to="https://www.linkedin.com/in/mohammad-rizqy-akmaluddin/" target="_blank">
                 <Icon icon="mingcute:linkedin-line" width="22" height="22" class="hover:text-gray-200" />
             </NuxtLink>
             <NuxtLink to="https://github.com/MohammadRizqyAkmaluddin" target="_blank">
                 <Icon icon="icon-park-outline:github" width="20" height="20" class="hover:text-gray-200" />
             </NuxtLink>
-            <NuxtLink to="#">
-                <Icon icon="mdi:email-outline" width="22" height="22" class="hover:text-gray-200" />
+            <NuxtLink to="https://mail.google.com/mail/?view=cm&fs=1&to=rizqy.akmaluddin@gmail.com&su=Greetings%20%2F%20Job%20Opportunity%20%2F%20Collaboration%20Inquiry&body=Hello%20Rizqy,%0A%0A%5BType%20your%20message%5D%0A%0ABest%20regards,%0A%5BYour%20Name%5D"
+            target="_blank"
+            >
+            <Icon icon="mdi:email-outline" width="22" height="22" class="hover:text-gray-200" />
             </NuxtLink>
         </div> 
 

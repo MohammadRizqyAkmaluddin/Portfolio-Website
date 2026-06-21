@@ -3,7 +3,7 @@ definePageMeta({
     layout: 'master'
 })
 
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const timeline = ref(null)
 const progressLine = ref(null)
@@ -21,37 +21,49 @@ onMounted(() => {
     const elTop = el.offsetTop
     const elHeight = el.offsetHeight
 
-    // 🔥 posisi scroll relatif ke element
     const start = elTop - windowH / 2
     const end = elTop + elHeight - windowH / 2
 
     let progress = (scrollY - start) / (end - start)
-
-    // clamp 0 - 1
     progress = Math.max(0, Math.min(progress, 1))
-
-    // 🔥 apply
     progressLine.value.style.height = progress * 100 + "%"
     indicator.value.style.top = progress * 100 + "%"
   }
 
   window.addEventListener("scroll", handler)
-
-  // 🔥 run sekali pas load biar ga bug
   handler()
 })
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handler)
 })
+
+
+const greeting = computed(() => {
+  const hour = new Date().getHours()
+
+  if (hour >= 5 && hour < 12) return 'Good Morning!'
+  if (hour >= 12 && hour < 18) return 'Good Afternoon!'
+  return 'Good Evening!'
+})
 </script>
 
 <template>
-
-    <div class="flex flex-col mt-[50px] md:mt-[100px] gap-10 ">
+    <div class="flex flex-col mt-[50px] gap-10 ">
         <div class="flex flex-col gap-5">
             <div class="relative flex justify-end group ">
-                <div class="flex flex-col md:flex-row items-center justify-center md:justify-start p-10 gap-10 border md:rounded-tl-full md:rounded-bl-full w-full md:w-[90%] relative ">
+                <div class="hidden md:flex flex-col md:flex-row items-center justify-center md:justify-start p-10 gap-10 border md:rounded-tl-full md:rounded-bl-full w-full md:w-[90%] relative ">
+                    <div class="profile-anim2 border rounded-full p-3">
+                        <img src="/profile.jpg" class="profile-anim w-[140px] h-[140px] rounded-full border object-cover p-2" />
+                    </div>
+                    <div class="flex flex-col items-center md:items-start gap-1 justify-center">
+                        <p>{{greeting}}</p>
+                        <p class="text-2xl md:text-4xl font-semibold text-center md:text-start">
+                            I'm Rizqy, Binusian that <br> learning through real projects
+                        </p>
+                    </div>
+                </div>
+                <div class="md:hidden flex flex-col md:flex-row items-center justify-center md:justify-start p-10 gap-10 w-full">
                     <div class="profile-anim2 border rounded-full p-3">
                         <img src="/profile.jpg" class="profile-anim w-[140px] h-[140px] rounded-full border object-cover p-2" />
                     </div>
@@ -61,7 +73,6 @@ onUnmounted(() => {
                             I'm Rizqy, Binusian that <br> learning through real projects
                         </p>
                     </div>
-
                 </div>
             </div>
             <p class="border-y p-2 text-center text-sm text-gray-600">
@@ -81,20 +92,6 @@ onUnmounted(() => {
                 </div>
             </div>
         </div>
-        <!-- <div class="flex flex-col mx-7 md:mx-20 gap-10 items-end">
-            <div class="flex flex-col md:flex-row items-center md:items-end gap-10 ">
-                <img src="/about/logo-binus.png" class="w-[200px] flex md:hidden">
-                <div class="flex flex-col gap-2 items-center md:items-end">
-                    <h1 class="font-semibold text-xl">Path of Experience</h1>
-                    <p class="text-[15px] text-gray-600 text-center md:text-end leading-relaxed">
-                        I’m a Third year student at Binus University, specializing in Software Development
-                        with hands-on experience building full-stack web applications using modern, 
-                        decoupled architectures.
-                    </p>
-                </div>
-                <img src="/about/logo-binus.png" class="w-[200px] hidden md:flex">
-            </div>
-        </div> -->
 
         <div class="flex flex-col gap-20 my-10 items-center w-full p-1">
             <h1 class="text-gray-600 text-sm border-y p-2 w-full text-center">My Expereince History and Achievement Timeline</h1>
@@ -123,7 +120,7 @@ onUnmounted(() => {
 
 
                 <!-- 🔥 ITEM -->
-                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr]">
+                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr] md:ms-0 ms-5">
 
                     <!-- 🔹 LEFT (DESKTOP ONLY) -->
                     <div class="hidden md:block text-right pr-20 gap-2">
@@ -166,7 +163,7 @@ onUnmounted(() => {
                     </div>
 
                 </div>
-                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr]">
+                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr] md:ms-0 ms-5">
 
                     <!-- 🔹 LEFT (DESKTOP ONLY) -->
                     <div class="hidden md:block text-right pr-20 gap-2">
@@ -207,7 +204,7 @@ onUnmounted(() => {
                     </div>
 
                 </div>
-                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr]">
+                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr] md:ms-0 ms-5">
 
                     <!-- 🔹 LEFT (DESKTOP ONLY) -->
                     <div class="hidden md:block text-right pr-20 gap-2">
@@ -246,7 +243,7 @@ onUnmounted(() => {
                     </div>
 
                 </div>
-                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr]">
+                <div class="grid mb-[100px] items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr] md:ms-0 ms-5">
 
                     <!-- 🔹 LEFT (DESKTOP ONLY) -->
                     <div class="hidden md:block text-right pr-20 gap-2">
@@ -287,7 +284,7 @@ onUnmounted(() => {
                     </div>
 
                 </div>
-                <div class="grid items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr]">
+                <div class="grid items-start grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_2fr] md:ms-0 ms-5">
 
                     <!-- 🔹 LEFT (DESKTOP ONLY) -->
                     <div class="hidden md:block text-right pr-20 gap-2">
@@ -336,7 +333,7 @@ onUnmounted(() => {
             Certifications
         </p>
 
-        <div class="flex gap-10 justify-center items-start">
+        <div class="flex flex-col md:flex-row gap-10 justify-center items-center md:items-start">
             <div class="flex flex-col gap-2">
                 <img src="/certificate/linkedin.png" class="w-[300px] rounded-xl">     
                 <h1 class="font-semibold max-w-[300px]">Essential JavaScript Training</h1> 

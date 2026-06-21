@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 definePageMeta({
     layout: 'master'
 })
@@ -111,7 +111,7 @@ import { Icon } from '@iconify/vue';
                         It also provides tools for companies to post job listings, promote their pages, 
                         and engage with potential candidates through an integrated messaging system.
                     </p>
-                    <NuxtLink to="http://www.academia.my.id/" target="_blank" rel="noopener noreferrer" external
+                    <NuxtLink to="http://www.conexa.my.id/" target="_blank" rel="noopener noreferrer" external
                      class="text-sm text-blue-800">
                      Visit Live Website ->
                     </NuxtLink>
@@ -190,10 +190,9 @@ import { Icon } from '@iconify/vue';
                         session and seamlessly exit through an integrated digital checkout 
                         process, improving efficiency and user convenience.
                     </p>
-                    <NuxtLink to="http://www.academia.my.id/" target="_blank" rel="noopener noreferrer" external
-                     class="text-sm text-blue-800">
-                     Visit Live Website ->
-                    </NuxtLink>
+                    <button class="text-sm text-gray-400 items-start flex w-fit" disabled>
+                     Live Website is Unavailable
+                    </button>
                     <div class="md:hidden flex flex-col gap-3">
                         <div class="flex flex-col gap-1">
                             <h1 class="font-semibold">GitHub:</h1>
@@ -268,7 +267,7 @@ import { Icon } from '@iconify/vue';
                         experts also can join as lecturers to start promoting and manage their course video 
                         and learning module in AcademiaPlus.
                     </p>
-                    <NuxtLink to="http://www.academia.my.id/" target="_blank" rel="noopener noreferrer" external
+                    <NuxtLink to="http://www.academia-plus.my.id/" target="_blank" rel="noopener noreferrer" external
                      class="text-sm text-blue-800">
                      Visit Live Website ->
                     </NuxtLink>
@@ -346,10 +345,9 @@ import { Icon } from '@iconify/vue';
                         curated product listings, seamless browsing, and secure transactions, 
                         tailored to reflect the exclusivity and elegance of luxury retail.
                     </p>
-                    <NuxtLink to="http://www.academia.my.id/" target="_blank" rel="noopener noreferrer" external
-                     class="text-sm text-blue-800">
-                     Visit Live Website ->
-                    </NuxtLink>
+                    <button class="text-sm text-gray-400 items-start flex w-fit" disabled>
+                     Live Website is Unavailable
+                    </button>
                     <div class="md:hidden flex flex-col gap-3">
                         <div class="flex flex-col gap-1">
                             <h1 class="font-semibold">GitHub:</h1>

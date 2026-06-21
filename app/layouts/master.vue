@@ -1,5 +1,13 @@
-<script setup>
-    import { Icon } from '@iconify/vue';
+<script setup lang="ts">
+    useHead({
+        title: 'Rizqy Corner',
+        link: [
+            { rel: 'icon', type: 'image/png', sizes: '180x180', href: '/logo2.png'}
+        ],
+        meta: [
+            { name: 'description', content: 'Booking lapangan online CourtHub' }
+        ]
+    })
 </script>
 
 

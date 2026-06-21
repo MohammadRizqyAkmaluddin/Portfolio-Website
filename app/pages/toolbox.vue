@@ -12,11 +12,9 @@ const tools = [
     { name: 'React Native', image: '/tools/react.png', url: 'https://react.dev/' },
     { name: 'Vue JS', image: '/tools/vue.png', url: 'https://vuejs.org/' },
     { name: 'MySQL', image: '/tools/mysql.png', url: 'https://www.mysql.com/' },
-    { name: 'MongoDB', image: '/tools/mongodb.png', url: 'https://www.mongodb.com/' },
     { name: 'Affinity', image: '/tools/affinity.png', url: 'https://www.affinity.studio/id_id' },
     { name: 'Bootstrap', image: '/tools/bootstrap.png', url: 'https://getbootstrap.com/' },
     { name: 'Tailwind', image: '/tools/tailwind.png', url: 'https://tailwindcss.com/' },
-    { name: 'Docker', image: '/tools/docker.png', url: 'https://www.docker.com/' },
     { name: 'Ubuntu', image: '/tools/ubuntu.png', url: 'https://ubuntu.com/' },
     { name: 'Figma', image: '/tools/figma.png', url: 'https://www.figma.com/' },
     { name: 'Git', image: '/tools/git.png', url: 'https://git-scm.com/' },
@@ -26,8 +24,6 @@ const tools = [
     { name: 'Postman', image: '/tools/postman.png', url: 'https://www.postman.com/' },
     { name: 'TypeScript', image: '/tools/typescript.png', url: 'https://www.typescriptlang.org/' },
     { name: 'VSCode', image: '/tools/vscode.png', url: 'https://code.visualstudio.com/' },
-    { name: 'Flutter', image: '/tools/flutter.png', url: 'https://flutter.dev/' },
-    { name: 'Azure', image: '/tools/azure.png', url: 'https://azure.microsoft.com/id-id' },
 ]
 
 </script>
