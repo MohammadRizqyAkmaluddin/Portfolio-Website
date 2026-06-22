@@ -17,7 +17,7 @@ const isToolbox = computed(() => route.path === '/toolbox')
 <template>
     <div class="flex justify-between items-center border-b p-4 px-5 bg-[linear-gradient(to_right,#FFFEFB_0%,#FFFEFB_40%,#ffffff_100%)]">
         <div class="w-[110px]" 100px="">
-            <img src="/logo.png" class="w-[35px] md:w-[30px] object-contain">
+            <NuxtLink to="/"><img src="/logo.png" class="w-[35px] md:w-[30px] object-contain"></NuxtLink>
         </div>
         <div class="hidden min-[1000px]:flex border rounded-full gap-8 py-[7px] px-6 text-sm text-gray-400 font-semibold ">
             <NuxtLink to="/" class="hover:text-black transition-colors" :class="isHome ? 'text-black' : ''">Home</NuxtLink>
@@ -52,7 +52,7 @@ const isToolbox = computed(() => route.path === '/toolbox')
         <div class="flex flex-col justify-between min-h-full pb-10 pt-6">
             <div class="flex flex-col"> 
                 <div class="flex justify-between items-center mx-5 mb-5">
-                    <img src="/logo.png" class="w-[40px] object-contain">    
+                    <NuxtLink to="/"><img src="/logo.png" class="w-[40px] object-contain"></NuxtLink>
                     <button class="min-[1000px]:hidden" @click="toggleMenu">
                         <Icon icon="quill:hamburger-sidebar" class="w-7 h-7"/>
                     </button>         
@@ -73,13 +73,14 @@ const isToolbox = computed(() => route.path === '/toolbox')
                 </div>
             </div>
             <div class="flex gap-8 bg-[#3C3C3F] rounded-full px-4 py-2 text-[#9CA3AF] mx-10 items-center justify-center">
-                <NuxtLink to="#">
+                <NuxtLink to="https://www.linkedin.com/in/mohammad-rizqy-akmaluddin/" target="_blank">
                     <Icon icon="mingcute:linkedin-line" width="23" height="23" />
                 </NuxtLink>
-                <NuxtLink to="#">
+                <NuxtLink to="https://mail.google.com/mail/?view=cm&fs=1&to=rizqy.akmaluddin@gmail.com&su=Greetings%20%2F%20Job%20Opportunity%20%2F%20Collaboration%20Inquiry&body=Hello%20Rizqy,%0A%0A%5BType%20your%20message%5D%0A%0ABest%20regards,%0A%5BYour%20Name%5D"
+                target="_blank">
                     <Icon icon="mdi:email-outline" width="23" height="23" />
                 </NuxtLink>
-                <NuxtLink to="#">
+                <NuxtLink to="https://github.com/MohammadRizqyAkmaluddin" target="_blank">
                     <Icon icon="icon-park-outline:github" width="22" height="22" />
                 </NuxtLink>
             </div> 

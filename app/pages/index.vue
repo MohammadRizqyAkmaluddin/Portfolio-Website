@@ -77,7 +77,7 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
   </div>
   <div class="flex justify-center border-y p-2 mt-8 items-center">
     <p class="hero-subtitle text-center leading-[25px] text-sm text-gray-700 w-[800px]">
-       I'm a front-end developer with a love for design and a knack for tinkering. This site is intentionally over-engineered and serves as my playground for experimenting with new ideas and seeing what sticks!
+      I’m a full-stack developer who enjoys turning ideas into scalable web apps and clean, user-focused experiences. This site doubles as my playground—where I experiment with new technologies, refine my skills, and build things that actually ship.
     </p>
   </div>
 

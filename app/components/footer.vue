@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-col md:flex-row justify-between border-y items-start px-5 bg-[linear-gradient(to_right,#FFFEFB_0%,#FFFEFB_40%,#ffffff_100%)]">
         <div class="flex flex-col gap-5 w-full md:w-1/2 px-1 md:px-10 py-5 border-b md:border-b-0 justify-between">
-            <img src="/logo.png" class="w-[45px] md:w-[40px] object-contain">
-            <p class="text-sm text-gray-400 w-full md:w-2/3">I'm Braydon - a senior front-end developer, blogger and public speaker. Thanks for checking out my site!</p>
+            <NuxtLink to="/"><img src="/logo.png" class="w-[45px] md:w-[40px] object-contain"></NuxtLink>
+            <p class="text-sm text-gray-400 w-full md:w-2/3">I’m Rizqy - a full-stack developer focused on building scalable web applications and crafting user-centered digital experiences. Thanks for visiting my portfolio!</p>
             <p class="text-sm text-gray-400">© 2026 Mohammad Rizqy Akmaluddin</p>
         </div>
         <div class="flex justify-between w-full md:w-1/2 px-1 md:px-16 py-5 border-s-none md:border-s h-full items-start">
@@ -15,15 +15,15 @@
             </div>
             <div class="flex flex-col gap-2 text-gray-500">
                 <h1 class="mb-3 text-gray-600 font-semibold">Social</h1>
-                <NuxtLink to="/" class="text-sm hover:text-black">LinkedIn</NuxtLink>
-                <NuxtLink to="/about" class="text-sm hover:text-black">Instagram</NuxtLink>
-                <NuxtLink to="/project" class="text-sm hover:text-black">GitHub</NuxtLink>
+                <NuxtLink to="https://www.linkedin.com/in/mohammad-rizqy-akmaluddin/" target="_blank" class="text-sm hover:text-black">LinkedIn</NuxtLink>
+                <NuxtLink to="https://www.instagram.com/mhmdrzqyyy_/" target="_blank" class="text-sm hover:text-black">Instagram</NuxtLink>
+                <NuxtLink to="https://github.com/MohammadRizqyAkmaluddin" target="_blank" class="text-sm hover:text-black">GitHub</NuxtLink>
             </div>
             <div class="flex flex-col gap-2 text-gray-500">
                 <h1 class="mb-3 text-gray-600 font-semibold">Websites</h1>
-                <NuxtLink to="/" class="text-sm hover:text-black">Courtside</NuxtLink>
-                <NuxtLink to="/about" class="text-sm hover:text-black">Connexa</NuxtLink>
-                <NuxtLink to="/project" class="text-sm hover:text-black">Academia+</NuxtLink>
+                <NuxtLink to="http://www.courtside.my.id/" target="_blank" class="text-sm hover:text-black">Courtside</NuxtLink>
+                <NuxtLink to="http://www.conexa.my.id/" target="_blank" class="text-sm hover:text-black">Connexa</NuxtLink>
+                <NuxtLink to="http://academia-plus.my.id/" target="_blank"  class="text-sm hover:text-black">Academia</NuxtLink>
             </div>
         </div>
     </div>
