@@ -68,7 +68,7 @@ const greeting = computed(() => {
                         <img src="/profile.jpg" class="profile-anim w-[140px] h-[140px] rounded-full border object-cover p-2" />
                     </div>
                     <div class="flex flex-col items-center md:items-start gap-1 justify-center">
-                        <p>Good Morning!</p>
+                        <p>{{greeting}}</p>
                         <p class="text-2xl md:text-4xl font-semibold text-center md:text-start">
                             I'm Rizqy, Binusian that <br> learning through real projects
                         </p>

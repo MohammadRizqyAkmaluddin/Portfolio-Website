@@ -3,7 +3,7 @@ definePageMeta({
   layout: 'master'
 })
 
-import { ref } from 'vue'
+import { computed } from 'vue'
 
 
 const images = [
@@ -61,6 +61,14 @@ const tools = [
 ]
 
 const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
+
+const greeting = computed(() => {
+  const hour = new Date().getHours()
+
+  if (hour >= 5 && hour < 12) return 'Good morning!'
+  if (hour >= 12 && hour < 18) return 'Good afternoon!'
+  return 'Good evening!'
+})
 </script>
 
 <template>
@@ -113,7 +121,7 @@ const delays = ['0.19s', '0.12s', '0s', '0.12s', '0.19s']
           <div class="flex flex-col gap-3 w-1/2 p-5 ps-6">
             <h1>Learn more about me</h1>
             <p class="text-gray-500 text-sm">
-              Good morning! <br>
+              {{greeting}}<br> 
               I'm Rizqy, an experienced front-end developer
             </p>
           </div>
