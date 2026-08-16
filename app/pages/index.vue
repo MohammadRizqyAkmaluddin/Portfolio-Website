@@ -10,7 +10,7 @@ const images = [
   "/showcase/courtside.png",
   "/showcase/luxora.png",
   "/showcase/connexa.png",
-  "/showcase/academia.png",
+  "/showcase/academiaPreview.png",
   "/showcase/sparky.png",
 ]
 
